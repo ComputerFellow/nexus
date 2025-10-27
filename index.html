@@ -100,7 +100,8 @@
       /* Hero Section with Video */
       .hero {
         position: relative;
-        height: 100vh;
+        /* height: 100vh; */
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -209,7 +210,7 @@
         z-index: 1;
         max-width: 800px;
         padding: 60px 40px;
-        margin: auto;
+        /* margin: auto; */
         text-align: center;
       }
 
@@ -420,6 +421,7 @@
          <!-- when class="hero" is taken out, the ride up problem is solved but video stops -->
           <!-- partial solution is keep hero and add line 212 width: auto, but this only helps to top head of section, causes 'partnerships' to get overlapped below with mobile view. -->
            <!-- I'll kepp it this way for now -->
+            <!-- solution: get rid of 'margin: auto' at line 212 and -->
         <section class="hero" id="innovation">
             <video
                 autoplay
