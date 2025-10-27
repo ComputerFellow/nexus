@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="x-poe-datastore-behavior" content="local_only">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NEXUS - Advanced Technology Systems</title>
+        <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        color: white;
+        overflow-x: hidden;
+        background: black;
+      } */
+      /* body {
+        font-family: "D-DIN Condensed", "Arial Narrow", "Roboto Condensed",
+          "Helvetica Neue", sans-serif;
+        color: white;
+        overflow-x: hidden;
+        background: black;
+      } */
+      /* body {
+        font-family: "Rajdhani", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: white;
+        overflow-x: hidden;
+        background: black;
+      }
+       */
+      body {
+        font-family: "Saira Condensed", -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        color: white;
+        overflow-x: hidden;
+        background: black;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        transition: background 0.3s ease;
+      }
+
+      nav.scrolled {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .nav-links a:hover {
+        color: #00d4ff;
+      }
+
+      /* Hero Section with Video */
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+        /* transition: filter 0.3s ease;  */
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 0 20px;
+        max-width: 900px;
+      }
+
+      .hero h1 {
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .hero p {
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 18px 50px;
+        border: 2px solid white;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .cta-button:hover {
+        background: white;
+        color: black;
+      }
+
+      /* Sections */
+      section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .section-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .section-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .section-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 60px 40px;
+        /* margin: auto; */
+        text-align: center;
+      }
+
+      .section-content h2 {
+        font-size: 56px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .section-content p {
+        font-size: 18px;
+        line-height: 1.8;
+        font-weight: 300;
+        margin-bottom: 40px;
+        letter-spacing: 0.5px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .feature {
+        padding: 20px;
+      }
+
+      .feature h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+      }
+
+      .feature p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-indicator::before {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 60px;
+        background: white;
+        margin: 0 auto 10px;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 20px;
+        }
+
+        .logo {
+          font-size: 22px;
+        }
+
+        .nav-links {
+          gap: 20px;
+        }
+
+        .nav-links a {
+          font-size: 12px;
+        }
+
+        .hero h1 {
+          font-size: 42px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        .section-content h2 {
+          font-size: 36px;
+        }
+
+        .section-content p {
+          font-size: 16px;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-links {
+          gap: 15px;
+        }
+
+        .nav-links a {
+          font-size: 10px;
+        }
+
+        .hero h1 {
+          font-size: 32px;
+        }
+      }
+      @keyframes videoFadeLoop {
+        0% {
+          filter: brightness(1);
+        }
+        70% {
+          filter: brightness(1);
+        }
+        95% {
+          filter: brightness(0);
+        }
+        100% {
+          filter: brightness(0);
+        }
+      }
+        </style>
+        <script src="https://puc.poecdn.net/authenticated_preview_page/syncedState.3f7572448765332f3047.js"></script>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav id="navbar">
+            <a href="#home" class="logo">NEXUS</a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#technology">Technology</a>
+                </li>
+                <li>
+                    <a href="#innovation">Innovation</a>
+                </li>
+                <li>
+                    <a href="#future">Future</a>
+                </li>
+                <li>
+                    <a href="#mission">Mission</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Hero Section with Video -->
+        <section class="hero" id="home">
+            <video autoplay muted playsinline>
+                <source src="assets/videos/hero-background.webm" type="video/webm">
+                <source src="assets/videos/hero-first.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Shaping Tomorrow</h1>
+                <p>Pioneering the next generation of advanced technology systems</p>
+                <a href="#technology" class="cta-button">Explore</a>
+            </div>
+            <div class="scroll-indicator"></div>
+        </section>
+        <!-- Technology Section -->
+        <section id="technology">
+            <img src="https://images.unsplash.com/photo-1528499908559-b8e4e8b89bda?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2944" alt="Innovation" class="section-bg">
+            <div class="section-overlay"></div>
+            <div class="section-content">
+                <h2>Technology</h2>
+                <p>
+                    We leverage cutting-edge artificial intelligence, quantum computing,
+          and neural networks to create solutions that redefine what's possible.
+          Our technology stack represents the pinnacle of human innovation.
+                </p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>AI Systems</h3>
+                        <p>Advanced neural architectures powering intelligent solutions</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Quantum Core</h3>
+                        <p>Next-gen processing for unprecedented computational power</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Cloud Infrastructure</h3>
+                        <p>Globally distributed systems ensuring 99.99% uptime</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Innovation Section -->
+        <section id="innovation">
+            <video
+                autoplay
+                muted
+                playsinline
+                class="section-bg"
+            >
+                <source src="assets/videos/hero-background.webm" type="video/webm">
+                <source src="assets/videos/hero-circuit.mp4" type="video/mp4">
+            </video>
+            <div class="section-overlay"></div>
+            <div class="section-content">
+                <h2>Innovation</h2>
+                <p>
+                    Innovation isn't just what we do—it's who we are. Our research teams
+          push boundaries daily, transforming theoretical concepts into
+          practical applications that change industries.
+                </p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>R&amp;D Labs</h3>
+                        <p>State-of-the-art facilities across three continents</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Patents</h3>
+                        <p>Over 500 registered innovations in critical fields</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Partnerships</h3>
+                        <p>Collaborating with leading universities worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Future Section -->
+        <section id="future">
+            <img src="https://images.unsplash.com/photo-1484589065579-248aad0d8b13?w=1920&amp;q=80" alt="Mission" class="section-bg">
+            <div class="section-overlay"></div>
+            <div class="section-content">
+                <h2>Future</h2>
+                <p>
+                    The future isn't waiting to happen—we're building it. Our roadmap
+          extends beyond conventional timelines, focusing on transformative
+          technologies that will shape the next century.
+                </p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>2026 Vision</h3>
+                        <p>Launch of autonomous systems platform</p>
+                    </div>
+                    <div class="feature">
+                        <h3>2028 Goals</h3>
+                        <p>Quantum encryption for global communications</p>
+                    </div>
+                    <div class="feature">
+                        <h3>2030 Mission</h3>
+                        <p>Carbon-neutral operations across all facilities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Mission Section -->
+        <!-- <img
+        src="https://images.unsplash.com/photo-1484589065579-248aad0d8b13?w=1920&amp;q=80"
+        alt="Mission"
+        class="section-bg"
+        / > -->
+        <section class="hero" id="mission">
+            <div class="section-overlay">
+                <video autoplay muted playsinline>
+                    <source src="assets/videos/hero-background.webm" type="video/webm">
+                    <source src="assets/videos/hero-mission.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="section-content">
+                <h2>Mission</h2>
+                <p>
+                    Our mission is to accelerate humanity's transition into a
+          technologically advanced future. We believe in creating systems that
+          not only solve today's challenges but anticipate tomorrow's needs.
+                </p>
+                <br>
+                <br>
+                <a href="#home" class="cta-button">Join Us</a>
+            </div>
+        </section>
+        <script>
+      /* ---------- smooth scroll & navbar ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
+          e.preventDefault();
+          const tgt = document.querySelector(anchor.getAttribute("href"));
+          if (tgt) tgt.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 100);
+      });
+
+      /* ---------- observer for text fade-ins ---------- */
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -100px 0px" }
+      );
+
+      document.querySelectorAll(".section-content").forEach((el) => {
+        el.style.cssText =
+          "opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease";
+        io.observe(el);
+      });
+
+      /* ---------- VIDEO SYNC ---------- */
+      function syncVideoFade(vid, fadeStart = 0.7, fadeEnd = 0.95) {
+        if (!vid) return;
+        vid.loop = true;
+        vid.muted = true;
+        vid.playsInline = true;
+
+        let animationId;
+        const fade = () => {
+          const t = vid.currentTime / vid.duration;
+          if (t < fadeStart) {
+            vid.style.filter = "brightness(1)";
+          } else if (t > fadeEnd) {
+            vid.style.filter = "brightness(0)";
+          } else {
+            vid.style.filter = `brightness(${
+              1 - (t - fadeStart) / (fadeEnd - fadeStart)
+            })`;
+          }
+          animationId = requestAnimationFrame(fade);
+        };
+
+        vid.addEventListener("play", () => {
+          animationId = requestAnimationFrame(fade);
+        });
+
+        vid.addEventListener("pause", () => {
+          if (animationId) cancelAnimationFrame(animationId);
+        });
+
+        vid.play().catch(() => {});
+      }
+
+      /* apply to every video that should fade */
+      document
+        .querySelectorAll(".hero video, .section-overlay video")
+        .forEach((v) => {
+          /* individual timings (optional) */
+          const id = v.closest("section")?.id;
+          let fadeStart = 0.7,
+            fadeEnd = 0.95;
+          if (id === "innovation") {
+            fadeStart = 0.75;
+            fadeEnd = 0.96;
+          }
+          if (id === "mission") {
+            fadeStart = 0.65;
+            fadeEnd = 0.92;
+          }
+          syncVideoFade(v, fadeStart, fadeEnd);
+        });
+        </script>
+    </body>
+</html>
